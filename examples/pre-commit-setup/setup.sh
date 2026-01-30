@@ -15,7 +15,7 @@ echo "Removing default pre-commit hook..."
 echo '# No pre-commit checks - validation happens on commit-msg and pre-push' > .husky/pre-commit
 
 echo "Creating commit-msg hook..."
-echo 'npx --no -- commitlint --edit "$1"' > .husky/commit-msg
+echo './node_modules/.bin/commitlint --edit "$1"' > .husky/commit-msg
 
 echo "Creating pre-push hook for branch validation..."
 cat > .husky/pre-push << 'EOF'
