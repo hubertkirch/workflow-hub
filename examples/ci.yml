@@ -1,0 +1,21 @@
+# Copy this file to your project repo at: .github/workflows/ci.yml
+# Replace YOUR_GITHUB_USERNAME with your actual GitHub username
+
+name: CI
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+    branches: ["**"]
+  workflow_dispatch:
+
+jobs:
+  lint-branch:
+    uses: hubertkirch/workflow-hub/.github/workflows/lint-branch.yml@main
+
+  lint-commits:
+    uses: hubertkirch/workflow-hub/.github/workflows/lint-commits.yml@main
+
+  scan-secrets:
+    uses: hubertkirch/workflow-hub/.github/workflows/scan-secrets.yml@main

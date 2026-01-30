@@ -1,0 +1,15 @@
+name: Lint Branch Name
+on:
+  workflow_call:
+
+jobs:
+  branch-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Branch Name
+        uses: deepakputhraya/action-branch-name@master
+        with:
+          # Standard: type/issue-id-description
+          regex: '^(feat|fix|chore|docs|refactor|style|perf|test)\/[0-9]+-.+'
+          allowed_prefixes: 'feat/,fix/,chore/,docs/,refactor/,style/,perf/,test/'
+          ignore: main,master,develop
